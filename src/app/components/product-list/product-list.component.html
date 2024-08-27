@@ -1,0 +1,16 @@
+<div class="product-list-container">
+    <h2>Lista de Produtos</h2>
+    <ul class="product-list">
+        <li *ngFor="let product of products" class="product-item">
+            <div class="product-image">
+                <img [src]="'assets/images/image.png'" alt="{{ product.name }}">
+            </div>
+            <div class="product-info">
+                <strong>{{ product.name }}</strong>
+                <p>{{ product.description }}</p>
+                <div class="price">Preço: R$ {{ product.price | number:'1.2-2' }}</div>
+            </div>
+        </li>
+    </ul>
+    <button (click)="navigateToCreateProduct()">Cadastrar Produto</button>
+</div>

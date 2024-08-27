@@ -7,22 +7,28 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:3000/api/v1/users';  // URL base da sua API
+  private apiUrl = 'http://localhost:3000/api/v1';
 
   constructor(private http: HttpClient) { }
 
-  // Método para registrar um novo usuário
   register(user: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}`, user);
+    return this.http.post(`${this.apiUrl}/users`, user);
   }
 
-  // Método para fazer login
   login(credentials: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, credentials);
+    return this.http.post(`${this.apiUrl}/users/login`, credentials);
   }
 
-  // Método para listar usuários (caso precise futuramente)
   getUsers(): Observable<any> {
-    return this.http.get(`${this.apiUrl}`);
+    return this.http.get(`${this.apiUrl}/users`);
   }
+
+  getProducts(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/products`);
+  }
+
+  createProduct(product: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/products`, product);
+  }
+
 }

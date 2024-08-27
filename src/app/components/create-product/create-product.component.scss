@@ -1,0 +1,52 @@
+.create-product-container {
+    max-width: 400px;      /* Largura máxima do container */
+    margin: 50px auto;     /* Centraliza o container na tela */
+    padding: 20px;         /* Padding interno */
+    border: 1px solid #ccc; /* Borda do container */
+    border-radius: 5px;    /* Cantos arredondados */
+    background-color: #fff; /* Fundo branco */
+}
+  
+h2 {
+    text-align: center;    /* Centraliza o título */
+    margin-bottom: 20px;   /* Espaçamento abaixo do título */
+}
+  
+.form-group {
+    margin-bottom: 15px;   /* Espaçamento entre os grupos de formulário */
+}
+  
+label {
+    display: block;        /* Exibe o label como um bloco */
+    margin-bottom: 5px;    /* Espaço abaixo do label */
+}
+  
+input, textarea {
+    width: 100%;           /* Input e textarea ocupam 100% da largura do container */
+    padding: 8px;          /* Padding interno do input e textarea */
+    box-sizing: border-box; /* Inclui padding na largura total do input e textarea */
+    border: 1px solid #ccc; /* Borda do input e textarea */
+    border-radius: 4px;    /* Cantos levemente arredondados */
+}
+  
+button {
+    width: 100%;           /* Botão ocupa 100% da largura do container */
+    padding: 10px;         /* Padding interno do botão */
+    margin-top: 20px;      /* Espaçamento acima do botão */
+    background-color: #28a745; /* Cor de fundo verde */
+    color: #fff;           /* Cor do texto branco */
+    border: none;          /* Sem borda */
+    border-radius: 5px;    /* Cantos arredondados */
+    cursor: pointer;       /* Cursor de ponteiro ao passar sobre o botão */
+    font-size: 16px;       /* Tamanho da fonte */
+    font-weight: bold;     /* Texto em negrito */
+    transition: background-color 0.3s ease; /* Transição suave na cor de fundo */
+}
+  
+button:hover {
+    background-color: #218838; /* Cor de fundo verde escuro no hover */
+}
+
+button:active {
+    background-color: #1e7e34; /* Cor de fundo ainda mais escura ao clicar */
+}

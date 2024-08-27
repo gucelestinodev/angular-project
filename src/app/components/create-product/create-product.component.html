@@ -1,0 +1,35 @@
+<div class="create-product-container">
+    <h2>Cadastrar Novo Produto</h2>
+    <form (ngSubmit)="createProduct()">
+        <div class="form-group">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" [(ngModel)]="product.name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Descrição:</label>
+            <textarea id="description" [(ngModel)]="product.description" name="description" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="price">Preço:</label>
+            <input type="number" id="price" [(ngModel)]="product.price" name="price" required>
+        </div>
+        <div class="form-group">
+            <label for="image">Imagem (URL):</label>
+            <input type="text" id="image" [(ngModel)]="product.image" name="image">
+        </div>
+        <div class="form-group">
+            <label for="category">Categoria:</label>
+            <input type="text" id="category" [(ngModel)]="product.category" name="category">
+        </div>
+        <div class="form-group">
+            <label for="countInStock">Estoque:</label>
+            <input type="number" id="countInStock" [(ngModel)]="product.countInStock" name="countInStock" required>
+        </div>
+        <div class="form-group">
+            <label for="brand">Marca:</label>
+            <input type="text" id="brand" [(ngModel)]="product.brand" name="brand">
+        </div>
+        <button type="submit">Criar Produto</button>
+    </form>
+</div>
+  

@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AuthInterceptor } from './auth-interceptor.service';  // Corrija a importação
+import { AuthInterceptor } from './auth-interceptor.service';
 
-describe('AuthInterceptor', () => {  // Use o nome correto aqui também
+describe('AuthInterceptor', () => {
   let service: AuthInterceptor;
 
   beforeEach(() => {

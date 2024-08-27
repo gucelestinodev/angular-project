@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Importar o CommonModule
+import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss'],
   standalone: true,
-  imports: [CommonModule] // Adicionar CommonModule aqui
+  imports: [CommonModule]
 })
 export class UserListComponent implements OnInit {
   users: any[] = [];

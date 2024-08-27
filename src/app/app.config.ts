@@ -1,9 +1,9 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideClientHydration } from '@angular/platform-browser';
-import { provideHttpClient } from '@angular/common/http';  // Para suportar HTTP
+import { provideHttpClient } from '@angular/common/http';
 import { importProvidersFrom } from '@angular/core';
-import { FormsModule } from '@angular/forms';  // Importando FormsModule
+import { FormsModule } from '@angular/forms';
 
 import { routes } from './app.routes';
 
@@ -13,6 +13,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(),
     provideHttpClient(),
-    importProvidersFrom(FormsModule)  // Adicionando FormsModule aos providers
+    importProvidersFrom(FormsModule)
   ]
 };
