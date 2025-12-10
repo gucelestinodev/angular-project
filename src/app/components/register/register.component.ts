@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
+  standalone: true,
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
-  standalone: true,
   imports: [FormsModule]
 })
 export class RegisterComponent {
@@ -15,7 +16,10 @@ export class RegisterComponent {
   email = '';
   password = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   register() {
     const newUser = {
@@ -25,10 +29,17 @@ export class RegisterComponent {
       phone: '1234567890',
       isAdmin: false
     };
-    this.authService.register(newUser).subscribe(response => {
-      console.log('User registered successfully:', response);
-    }, error => {
-      console.error('Registration failed', error);
+
+    this.authService.register(newUser).subscribe({
+      next: () => {
+        console.log('User registered successfully');
+        this.router.navigate(['/login']);
+      },
+      error: (err) => console.error('Registration failed', err)
     });
+  }
+
+  goToLogin() {
+    this.router.navigate(['/login']);
   }
 }

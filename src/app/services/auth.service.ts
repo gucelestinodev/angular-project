@@ -1,22 +1,39 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { StorageService } from './storage.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class AuthService {
-
   private apiUrl = 'http://localhost:3000/api/v1';
 
-  constructor(private http: HttpClient) { }
+  private isAuthedSub = new BehaviorSubject<boolean>(false);
+  isAuthenticated$ = this.isAuthedSub.asObservable();
+
+  constructor(private http: HttpClient, private storage: StorageService) {
+    this.isAuthedSub.next(!!this.storage.getItem('token'));
+  }
 
   register(user: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/users`, user);
   }
 
-  login(credentials: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/users/login`, credentials);
+  login(credentials: { email: string; password: string }): Observable<{ token: string }> {
+    return this.http.post<{ token: string }>(`${this.apiUrl}/users/login`, credentials).pipe(
+      tap((res) => {
+        this.storage.setItem('token', res.token);
+        this.isAuthedSub.next(true);
+      })
+    );
+  }
+
+  logout() {
+    this.storage.removeItem('token');
+    this.isAuthedSub.next(false);
+  }
+
+  get token(): string | null {
+    return this.storage.getItem('token');
   }
 
   getUsers(): Observable<any> {
@@ -30,5 +47,4 @@ export class AuthService {
   createProduct(product: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/products`, product);
   }
-
 }

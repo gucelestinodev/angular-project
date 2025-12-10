@@ -1,55 +1,90 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .45);
+  backdrop-filter: blur(2px);
+  z-index: 90;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: 3px 0 10px rgba(0, 0, 0, 0.2);
+  transform: translateX(-100%);
+  transition: transform .25s ease-out;
+  z-index: 100;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.drawer-btn {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.drawer-btn.primary {
+  background: #0552a5;
+  color: white;
+}
+
+.drawer-btn.primary:hover {
+  background: #003f82;
+}
+
+.drawer-btn.danger {
+  background: #e74c3c;
+  color: white;
+}
+
+.drawer-btn.danger:hover {
+  background: #c0392b;
+}
+
 :host {
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  .header {
-    background-color: var(--bright-blue);
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .header-title {
-    font-size: 1.5rem;
-    margin: 0;
-    flex-grow: 1;
-    text-align: center;
-    color: #000000;
-  }
-  
-  .menu-button {
-    background: none;
-    border: none;
-    padding: 0.5rem;
-    cursor: pointer;
-    svg {
-      fill: white;
-    }
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-  
-  .main {
-    width: 100%;
-    min-height: calc(100vh - 64px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-  }
-  
-  .content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-  }
-  
+  display: block;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, #1e293b 0, #020617 55%, #000 100%);
+  color: #e5e7eb;
+}
+
+.app-header {
+  background-color: #020617;
+  color: #f9fafb;
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.8);
+}
+
+.app-header__inner {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-header__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
