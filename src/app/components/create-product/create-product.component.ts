@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule]
 })
 export class CreateProductComponent {
+
   product = {
     name: '',
     description: '',
@@ -22,14 +23,24 @@ export class CreateProductComponent {
     brand: ''
   };
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   createProduct() {
-    this.authService.createProduct(this.product).subscribe(response => {
-      console.log('Product created:', response);
-      this.router.navigate(['/products']);
-    }, error => {
-      console.error('Failed to create product', error);
+    this.authService.createProduct(this.product).subscribe({
+      next: (response) => {
+        console.log('Product created:', response);
+        this.router.navigate(['/products']);
+      },
+      error: (error) => {
+        console.error('Failed to create product', error);
+      }
     });
+  }
+
+  goBack() {
+    this.router.navigate(['/products']);
   }
 }

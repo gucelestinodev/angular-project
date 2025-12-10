@@ -33,6 +33,11 @@ export class AppComponent {
     this.router.navigate(['/create-product']);
   }
 
+  goUsers() {
+    this.router.navigate(['/users']);
+    this.closeMenu();
+  }
+
   logout() {
     this.closeMenu();
     this.auth.logout();

@@ -6,61 +6,86 @@
   z-index: 90;
 }
 
-.drawer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 280px;
-  height: 100vh;
-  background: #fff;
-  box-shadow: 3px 0 10px rgba(0, 0, 0, 0.2);
-  transform: translateX(-100%);
-  transition: transform .25s ease-out;
-  z-index: 100;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.drawer.open {
-  transform: translateX(0);
-}
-
-.drawer-title {
-  margin: 0;
-  font-size: 1.2rem;
-  font-weight: bold;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-.drawer-btn {
-  padding: 12px;
-  font-size: 1rem;
-  border-radius: 6px;
+.icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
   border: none;
   cursor: pointer;
-  font-weight: 500;
-  transition: 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #f9fafb;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.icon-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.55);
+}
+
+.icon-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.4);
+}
+
+.icon-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+
+.drawer-btn {
+  width: 100%;
+  padding: 11px 14px;
+  font-size: 0.98rem;
+  border-radius: 999px;
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+  transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease;
 }
 
 .drawer-btn.primary {
-  background: #0552a5;
-  color: white;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #f9fafb;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.40);
 }
 
 .drawer-btn.primary:hover {
-  background: #003f82;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.55);
 }
 
+.drawer-btn.primary:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.40);
+}
+
+
 .drawer-btn.danger {
-  background: #e74c3c;
-  color: white;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #fef2f2;
+  box-shadow: 0 10px 25px rgba(239, 68, 68, 0.40);
 }
 
 .drawer-btn.danger:hover {
-  background: #c0392b;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(239, 68, 68, 0.55);
+}
+
+.drawer-btn.danger:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 18px rgba(239, 68, 68, 0.40);
 }
 
 :host {
@@ -87,4 +112,40 @@
 .app-header__title {
   font-size: 1.1rem;
   font-weight: 600;
+}
+
+
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  background: rgba(15, 23, 42, 0.96);
+  border-right: 1px solid rgba(148, 163, 184, 0.3);
+  box-shadow: 10px 0 25px rgba(0, 0, 0, 0.6);
+
+  transform: translateX(-100%);
+  transition: transform .25s ease-out;
+  z-index: 100;
+}
+
+.drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: #e5e7eb;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(55, 65, 81, 0.9);
 }

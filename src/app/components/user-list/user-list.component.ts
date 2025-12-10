@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -12,7 +13,10 @@ import { AuthService } from '../../services/auth.service';
 export class UserListComponent implements OnInit {
   users: any[] = [];
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.authService.getUsers().subscribe((data: any[]) => {
@@ -20,5 +24,9 @@ export class UserListComponent implements OnInit {
     }, error => {
       console.error('Failed to fetch users', error);
     });
+  }
+
+  goBack() {
+    this.router.navigate(['/products']);
   }
 }
